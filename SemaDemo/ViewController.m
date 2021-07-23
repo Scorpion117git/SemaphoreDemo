@@ -21,11 +21,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //        [self normalThread];
-    [self semaphoreThread];
+//    [self semaphoreThread];
 //            [self semaphoreThread_1];
 //    [self semaphoreThread_0];
 
-    //    [self groupThread];
+        [self groupThread];
 }
 
 
@@ -172,7 +172,17 @@
     
 }
 
-
+/**
+ 2021-07-23 15:28:32.030550+0800 SemaDemo[22090:312053] 2请求成功
+ 2021-07-23 15:28:32.095009+0800 SemaDemo[22090:312050] 1请求成功
+ 2021-07-23 15:28:32.095012+0800 SemaDemo[22090:312048] 信号量为0
+ 2021-07-23 15:28:32.116285+0800 SemaDemo[22090:312053] 3请求成功
+ 或
+ 2021-07-23 15:28:32.030550+0800 SemaDemo[22090:312053] 1请求成功
+ 2021-07-23 15:28:32.095009+0800 SemaDemo[22090:312050] 2请求成功
+ 2021-07-23 15:28:32.095012+0800 SemaDemo[22090:312048] 信号量为0
+ 2021-07-23 15:28:32.116285+0800 SemaDemo[22090:312053] 3请求成功
+ */
 - (void)groupThread{
     //结束请求进行下一步操作,不注重顺序
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
